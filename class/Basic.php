@@ -6,24 +6,19 @@ use MariuszAnuszkiewicz\classes\ProductVariation\ProductVariation;
 
 class Basic {
 
-    protected static $random, $product, $products_array = [];
+    protected static $random, $product, $products;
 
     public static function generateRandomItems(int $range, string $file, string $color) {
 
-        echo self::$random = rand(1, $range);
-        $products = new Products(new Product($file), new ProductVariation($color));
+        self::$random = rand(1, $range);
         self::$product = new Product($file);
-
-            if (self::$product->getId() == 1) {
-                self::showItems();
-            }
-
-        return self::$products_array[] = $products;
+        self::$products = new Products(new Product($file));
+        return self::$products->getCurrent();
 
     }
 
     public function showItems() {
+
         return self::$product->getId();
     }
-
 }

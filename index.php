@@ -1,5 +1,6 @@
 <?php
 use MariuszAnuszkiewicz\classes\Product\Product;
+use MariuszAnuszkiewicz\classes\Products\Products;
 use MariuszAnuszkiewicz\classes\ProductVariation\ProductVariation;
 use MariuszAnuszkiewicz\classes\Basic\Basic;
 
@@ -43,12 +44,11 @@ $files = [
 
 ];
 
+foreach($files as $file) {
 
-  foreach($files as $file) {
-      $basic_class = Basic::generateRandomItems(3, $file, "blue");
-      //print_r($basic_class);
-       Basic::showItems();
-  }
-//$values = call_user_func_array("generateRandomItems", $files);
+    echo $basic_class = Basic::generateRandomItems(3, $file, "blue");
 
-  //echo Basic::showItems();
+}
+
+
+
