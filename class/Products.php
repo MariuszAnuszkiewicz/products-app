@@ -1,20 +1,19 @@
 <?php namespace MariuszAnuszkiewicz\classes\Products;
 
 use MariuszAnuszkiewicz\classes\Product\Product;
-use MariuszAnuszkiewicz\classes\ProductVariation\ProductVariation;
 
 class Products extends \ArrayIterator {
 
-   protected $objects = [], $numObjects, $iterateNum = 0;
+   protected $objects, $numObjects = 0, $iterateNum = 0;
 
    public function __construct(Product $product) {
 
-       $this->add($product);
+       $this->addObject($product);
    }
 
-   public function add($obj) {
+   public function addObject($obj) {
 
-        $this->objects[] = $obj;
+        $this->objects[$this->numObjects] = $obj;
         $this->numObjects++;
    }
 
@@ -31,6 +30,6 @@ class Products extends \ArrayIterator {
 
    public function currentObjIsLast() {
 
-        return (($this->numObjects-1) == $this->iterateNum);
+        return (($this->numObjects - 1) == $this->iterateNum);
    }
 }

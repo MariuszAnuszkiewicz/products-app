@@ -4,21 +4,13 @@ use MariuszAnuszkiewicz\classes\Item\Item;
 
 class ProductVariation implements Item {
 
-  protected $color, $json;
+  protected $json;
+  public $color;
 
-  public function __construct($color) {
-
-    if(gettype($color) === 'string') {
-        $this->color = $color;
-    } else {
-
-      try {
-         $throwDataType = new \UndefinedVariantColor();
-         $throwDataType->checkTypeField($color);
-      } catch (\UndefinedVariantColor $message) {
-         echo $message->getMessage();
-      }
-    }
+  public function __construct(string $color) {
+     if(is_string($color)) {
+         $this->color = $color;
+     }
   }
 
   public function getId() {
@@ -27,7 +19,7 @@ class ProductVariation implements Item {
   }
 
   public function getNet() {
-     $tax_value = (($this->json['price'] / 100) * 22);
+     $tax_value = (($this->json['price'] / 100) * 23);
      $sum_price = $this->json['price'] + $tax_value;
      return $sum_price;
   }

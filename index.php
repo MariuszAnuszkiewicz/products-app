@@ -1,9 +1,6 @@
 <?php
-use MariuszAnuszkiewicz\classes\Product\Product;
-use MariuszAnuszkiewicz\classes\Products\Products;
-use MariuszAnuszkiewicz\classes\ProductVariation\ProductVariation;
-use MariuszAnuszkiewicz\classes\Basic\Basic;
 
+use MariuszAnuszkiewicz\classes\Basic\Basic;
 
 if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
@@ -35,20 +32,7 @@ function autoloadClasses($class) {
 
 spl_autoload_register('autoloadClasses');
 
-
-$files = [
-
-   1 => ROOT . './products/product1.json',
-   2 => ROOT . './products/product2.json',
-   3 => ROOT . './products/product3.json'
-
-];
-
-foreach($files as $file) {
-
-    echo $basic_class = Basic::generateRandomItems(3, $file, "blue");
-
-}
+echo $basic_class = Basic::generateRandomItems(4);
 
 
 
