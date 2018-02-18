@@ -11,7 +11,6 @@ class Product extends ProductVariation {
         if (file_exists($filename)) {
             $handler = file_get_contents($filename);
             $this->json = json_decode($handler, true);
-            $this->color = null;
         }
         try {
             $throw = new \ProductFileNotFound();

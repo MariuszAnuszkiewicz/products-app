@@ -49,8 +49,7 @@ class Basic {
         }
         $outputColor .= self::$variation->color;
 
-        switch ("id") {
-            
+        switch ("products") {
             case "id":
                 return $outputId;
                 break;

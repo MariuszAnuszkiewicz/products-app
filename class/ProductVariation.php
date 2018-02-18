@@ -9,12 +9,11 @@ class ProductVariation implements Item {
 
   public function __construct(string $color) {
      if(is_string($color)) {
-         $this->color = $color;
+        $this->color = $color;
      }
   }
 
   public function getId() {
-
      return $this->json['id'];
   }
 
